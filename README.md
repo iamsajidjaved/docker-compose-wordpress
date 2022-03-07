@@ -6,8 +6,8 @@
 
 # Setup Guide
  - Clone the repository
- - Go inside the repository
- - Run *docker-compose up*
+ - Go inside the directory where you cloned
+ - Run ```docker-compose up```
  - Login to PHPMyAdmin.
  - Create database
  - Access WordPress URL
