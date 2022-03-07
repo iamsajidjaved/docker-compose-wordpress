@@ -3,8 +3,11 @@ version: "3.9"
 services:
   db:
     image: mysql:5.7
+    container_name: db
     volumes:
       - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: RootPassword
@@ -12,21 +15,34 @@ services:
       MYSQL_USER: MySQLNormalUser
       MYSQL_PASSWORD: MySQLNormalPassword
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    depends_on:
+      - db
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8081:80"
+
   wordpress:
     depends_on:
       - db
     image: wordpress:latest
     volumes:
       - "./wordpress:/var/www/html"
-      - "./themes:/var/www/html/wp-content/themes"
     ports:
       - "8000:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: DatabaseName
-      WORDPRESS_DB_PASSWORD: MySQLNormalUser
+      WORDPRESS_DB_USER: MySQLNormalUser
+      WORDPRESS_DB_PASSWORD: MySQLNormalPassword
       WORDPRESS_DB_NAME: DatabaseName
+
 volumes:
-  db_data: {}
-  wordpress_data: {}
+  db_data: { }
+  wordpress_data: { }
