@@ -8,7 +8,7 @@
  - Clone the repository
  - Go inside the directory where you cloned
  - Run ```docker-compose up```
- - Login to PHPMyAdmin.
+ - Login to PHPMyAdmin. If you didn't change the port then it will be available on ```http://localhost.8081```. You don't need to enter ```host```. Only ```username``` and ```password``` are enough.
  - Create database
  - Access WordPress URL
  - Enter database configurations etc.
