@@ -10,7 +10,7 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: MySQLRootPassword
+      MYSQL_ROOT_PASSWORD: RootPassword
       MYSQL_DATABASE: DatabaseName
       MYSQL_USER: MySQLNormalUser
       MYSQL_PASSWORD: MySQLNormalPassword
@@ -39,8 +39,8 @@ services:
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: MySQLRootPassword
+      WORDPRESS_DB_USER: MySQLNormalUser
+      WORDPRESS_DB_PASSWORD: MySQLNormalPassword
       WORDPRESS_DB_NAME: DatabaseName
 
 volumes:
