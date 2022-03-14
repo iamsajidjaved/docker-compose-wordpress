@@ -13,7 +13,7 @@ services:
       MYSQL_ROOT_PASSWORD: RootPassword
       MYSQL_DATABASE: DatabaseName
       MYSQL_USER: MySQLNormalUser
-      MYSQL_PASSWORD: MySQLNormalPassword
+      MYSQL_PASSWORD: MySQLPassword
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -40,7 +40,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: MySQLNormalUser
-      WORDPRESS_DB_PASSWORD: MySQLNormalPassword
+      WORDPRESS_DB_PASSWORD: MySQLPassword
       WORDPRESS_DB_NAME: DatabaseName
 
 volumes:
